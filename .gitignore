@@ -1,0 +1,26 @@
+# .NET build files
+bin/
+obj/
+
+# Visual Studio and VS Code files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Local database files
+*.mdf
+*.ldf
+
+# Logs and test results
+*.log
+TestResults/
+
+# Local environment and secret files
+.env
+.env.*
+appsettings.Development.json
+
+# Operating system files
+.DS_Store
+Thumbs.db

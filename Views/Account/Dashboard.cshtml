@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Dashboard";
+
+    string displayName =
+        ViewData["DisplayName"] as string
+        ?? User.Identity?.Name
+        ?? "User";
+
+    string email =
+        ViewData["Email"] as string
+        ?? "Email unavailable";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <h1>Welcome, @displayName!</h1>
+
+                    <p class="lead text-muted">
+                        You have logged in successfully.
+                    </p>
+                </div>
+
+                <div class="alert alert-success" role="alert">
+                    Your account was loaded from SQL Server,
+                    and this dashboard is protected.
+                </div>
+
+                <div class="border rounded p-3 mb-4">
+                    <h5>Logged-in user</h5>
+
+                    <p class="mb-1">
+                        <strong>Name:</strong>
+                        @displayName
+                    </p>
+
+                    <p class="mb-0">
+                        <strong>Email:</strong>
+                        @email
+                    </p>
+                </div>
+
+                <form asp-controller="Account" asp-action="Logout" method="post" class="text-center">
+
+                    <button type="submit" class="btn btn-danger">
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
